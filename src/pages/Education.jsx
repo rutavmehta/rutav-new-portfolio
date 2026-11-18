@@ -101,12 +101,36 @@ function Education() {
                 <span>Pune</span>
               </div>
             </div>
-            <div aria-label="Integrated programme from 2023 to 2029" className="education-programme__span">
+            <div aria-label="Integrated programme from 2023 to expected B.Tech graduation in 2029" className="education-programme__span">
               <span>2023</span>
               <span aria-hidden="true" className="education-programme__line" />
-              <span>EXPECTED COMPLETION <strong>2029</strong></span>
+              <span>EXPECTED B.TECH GRADUATION <strong>2029</strong></span>
             </div>
           </div>
+
+          <ol aria-label="Integrated academic journey milestones" className="education-timeline">
+            <li className="education-timeline__milestone">
+              <span aria-hidden="true" className="education-timeline__dot" />
+              <span className="education-timeline__content">
+                <strong>2023</strong>
+                <span>Pathway begins</span>
+              </span>
+            </li>
+            <li className="education-timeline__milestone">
+              <span aria-hidden="true" className="education-timeline__dot" />
+              <span className="education-timeline__content">
+                <strong>2026</strong>
+                <span>Diploma stage ends</span>
+              </span>
+            </li>
+            <li className="education-timeline__milestone">
+              <span aria-hidden="true" className="education-timeline__dot" />
+              <span className="education-timeline__content">
+                <strong>2029</strong>
+                <span>Expected B.Tech graduation</span>
+              </span>
+            </li>
+          </ol>
 
           <div className="education-stages">
             {stages.map(({ label, name, degree, duration, resultLabel, result, status }, index) => (
@@ -167,7 +191,7 @@ function Education() {
           <div className="school-record__details">
             <div><span>Board</span><strong>CBSE</strong></div>
             <div><span>Qualification</span><strong>Class 10</strong></div>
-            <div><span>Passing year</span><strong>2023</strong></div>
+            <div><span>Completed</span><strong>2023</strong></div>
             <div className="school-record__result"><span>Result</span><strong>77%</strong></div>
           </div>
         </article>
