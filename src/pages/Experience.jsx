@@ -17,7 +17,6 @@ import './Experience.css'
 const leadershipRoles = ['Treasurer', 'Documentation Department Head']
 
 const eventResponsibilities = [
-  'Documentation & Finance Head',
   'Event Documentation & Report',
   'Finance & Inventory',
   'Registration Desk Lead',
@@ -27,7 +26,7 @@ const eventResponsibilities = [
 const tablaDetails = [
   'Practising Tabla since 2014.',
   'Started learning at Navrachana International School, Vadodara.',
-  'More than a decade of continued practice.',
+  'More than 10 years of consistent practice.',
 ]
 
 function Experience() {
@@ -38,11 +37,19 @@ function Experience() {
         as="section"
         className="experience-intro"
       >
-        <p className="experience-eyebrow">PROFESSIONAL &amp; PERSONAL GROWTH</p>
-        <h1 className="experience-intro__title" id="experience-title">Experience &amp; Activities</h1>
-        <p className="experience-intro__description">
-          An overview of my professional exposure, leadership responsibilities, university involvement, and interests beyond academics.
-        </p>
+        <div className="experience-intro__copy">
+          <p className="experience-eyebrow">PROFESSIONAL &amp; PERSONAL GROWTH</p>
+          <h1 className="experience-intro__title" id="experience-title">Experience &amp; Activities</h1>
+          <p className="experience-intro__description">
+            A record of engineering-team collaboration, campus responsibilities, and a long-standing personal practice.
+          </p>
+        </div>
+        <aside aria-label="Experience areas" className="experience-intro__areas">
+          <p>THREE THREADS</p>
+          <span><strong>01</strong> Industry experience</span>
+          <span><strong>02</strong> Campus leadership</span>
+          <span><strong>03</strong> Personal practice</span>
+        </aside>
       </Reveal>
 
       <Reveal
@@ -62,7 +69,7 @@ function Experience() {
             <Card className="internship-card">
               <div className="internship-card__top">
                 <span className="experience-icon"><BriefcaseBusiness aria-hidden="true" size={19} strokeWidth={1.7} /></span>
-                <span className="experience-card__index">INTERNSHIP</span>
+                <span className="experience-card__index">PROFESSIONAL EXPERIENCE</span>
               </div>
               <h3>Junior Engineer</h3>
               <p className="internship-card__organisation">Ybranium Technologies</p>
@@ -72,7 +79,7 @@ function Experience() {
                 <span><Clock3 aria-hidden="true" size={14} /> 2 months</span>
               </div>
               <p className="internship-card__description">
-                Worked with the engineering team on project development and implementation, gaining practical industry exposure and experience in collaborative engineering work.
+                Worked collaboratively with the engineering team on projects.
               </p>
             </Card>
           </Reveal>
@@ -120,9 +127,7 @@ function Experience() {
               </div>
             </div>
             <div className="leadership-card__content">
-              <p>
-                Contribute to the university's AI and Innovation Club through finance-related responsibilities and documentation activities.
-              </p>
+              <p className="leadership-card__roles-label">RESPONSIBILITIES</p>
               <ul aria-label="Leadership roles" className="experience-labels">
                 {leadershipRoles.map((role) => <li key={role}>{role}</li>)}
               </ul>
@@ -152,18 +157,22 @@ function Experience() {
               </div>
               <h3>INCUBEX 2026</h3>
               <div className="event-card__meta">
-                <span><Building2 aria-hidden="true" size={14} /> Ignisia Club, MIT-WPU</span>
+                <span><Building2 aria-hidden="true" size={14} /> Organised under Ignisia Club, MIT-WPU</span>
                 <span><CalendarDays aria-hidden="true" size={14} /> 21 October 2026</span>
               </div>
-              <p>
-                Contributed to the planning and execution of INCUBEX 2026 through documentation, finance, registration, and venue-related responsibilities.
-              </p>
+              <div className="event-card__role">
+                <span>ROLE</span>
+                <strong>Documentation &amp; Finance Head</strong>
+              </div>
             </div>
             <div className="event-card__responsibilities">
-              <p className="experience-card__index">RESPONSIBILITIES</p>
-              <ul aria-label="INCUBEX 2026 responsibilities" className="experience-labels">
-                {eventResponsibilities.map((responsibility) => (
-                  <li key={responsibility}>{responsibility}</li>
+              <p className="experience-card__index">EVENT RESPONSIBILITIES</p>
+              <ul aria-label="INCUBEX 2026 responsibilities" className="event-card__responsibility-list">
+                {eventResponsibilities.map((responsibility, index) => (
+                  <li key={responsibility}>
+                    <span aria-hidden="true">0{index + 1}</span>
+                    {responsibility}
+                  </li>
                 ))}
               </ul>
             </div>
