@@ -1,4 +1,5 @@
 import { ArrowDownToLine, ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
 import Button from '../components/ui/Button.jsx'
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
@@ -8,16 +9,24 @@ import { professionalInterests, recentActivity, selectedProjects } from '../data
 import './Home.css'
 
 function Home() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <PageContainer className="home-page">
-      <section aria-labelledby="home-title" className="portfolio-hero">
-        <Reveal className="portfolio-hero__copy">
+      <Reveal
+        aria-labelledby="home-title"
+        as="section"
+        className="portfolio-hero"
+      >
+        <div className="portfolio-hero__copy">
           <p className="home-eyebrow">AI · SOFTWARE · DATA</p>
           <h1 className="portfolio-hero__name" id="home-title">
-            Rutav Ritesh <span>Mehta</span>
+            <span className="portfolio-hero__first-name">Rutav Ritesh</span>
+            <span>Mehta</span>
           </h1>
           <p className="portfolio-hero__role">
-            B.Tech CSE (AI &amp; DS) Student <span aria-hidden="true">|</span> Aspiring AI &amp; Software Developer
+            <strong>B.Tech CSE (AI &amp; DS) Student</strong>
+            <span>Aspiring AI &amp; Software Developer</span>
           </p>
           <p className="portfolio-hero__introduction">
             I enjoy exploring technology, developing practical solutions, and building software that connects artificial intelligence, data and real-world applications.
@@ -30,7 +39,7 @@ function Home() {
             <Button to="/projects">
               Explore My Work <ArrowUpRight aria-hidden="true" size={16} />
             </Button>
-            <Button to="/contact" variant="text">
+            <Button className="portfolio-hero__contact-button" to="/contact" variant="text">
               Get In Touch <ArrowRight aria-hidden="true" size={16} />
             </Button>
             <Button
@@ -45,24 +54,31 @@ function Home() {
               Resume <span className="resume-button__note">PDF soon</span>
             </Button>
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal className="portfolio-hero__portrait" delay={0.1}>
-          <div className="portrait-frame">
-            <div aria-hidden="true" className="portrait-frame__corner portrait-frame__corner--top" />
+        <Reveal className="portfolio-hero__portrait" delay={0.12}>
+          <motion.div
+            animate={{ opacity: 1, scale: 1 }}
+            className="portrait-frame"
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+          >
             <img
               alt="Rutav Mehta – Profile Photograph"
               className="portrait-frame__image"
               src={profilePhoto}
             />
+            <div aria-hidden="true" className="portrait-frame__shade" />
+            <div aria-hidden="true" className="portrait-frame__corner" />
             <div className="portrait-frame__caption">
               <span>PROFILE PHOTOGRAPH</span>
               <span>RUTAV MEHTA</span>
             </div>
             <div aria-hidden="true" className="portrait-frame__index">01</div>
-          </div>
+          </motion.div>
         </Reveal>
-      </section>
+      </Reveal>
 
       <Reveal
         aria-labelledby="interests-title"
@@ -78,12 +94,13 @@ function Home() {
         </div>
         <div className="interest-grid">
           {professionalInterests.map(({ title, description, icon: Icon }, index) => (
-            <article className="interest-item" key={title}>
+            <Card className="interest-item" key={title}>
               <span className="interest-item__number">0{index + 1}</span>
-              <span className="interest-item__icon"><Icon aria-hidden="true" size={19} strokeWidth={1.7} /></span>
+              <span className="interest-item__icon"><Icon aria-hidden="true" size={20} strokeWidth={1.7} /></span>
               <h3>{title}</h3>
               <p>{description}</p>
-            </article>
+              <span aria-hidden="true" className="interest-item__rule" />
+            </Card>
           ))}
         </div>
       </Reveal>
@@ -157,12 +174,12 @@ function Home() {
           {recentActivity.map(({ title, organization, role, description, icon: Icon }, index) => (
             <article className="activity-item" key={title}>
               <span aria-hidden="true" className="activity-item__marker" />
-              <div className="activity-item__meta">
-                <span className="activity-item__index">0{index + 1}</span>
-                <span className="activity-item__icon"><Icon aria-hidden="true" size={17} strokeWidth={1.7} /></span>
-              </div>
               <div className="activity-item__content">
-                <p className="activity-item__date">{organization}</p>
+                <div className="activity-item__meta">
+                  <span className="activity-item__index">0{index + 1}</span>
+                  <span className="activity-item__date">{organization}</span>
+                  <span className="activity-item__icon"><Icon aria-hidden="true" size={17} strokeWidth={1.7} /></span>
+                </div>
                 <h3>{title}</h3>
                 {role && <p className="activity-item__role">{role}</p>}
                 {description && <p className="activity-item__description">{description}</p>}
