@@ -1,5 +1,18 @@
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import {
+  Activity,
+  BatteryCharging,
+  BrainCircuit,
+  CalendarDays,
+  ChevronDown,
+  Code2,
+  KeyRound,
+  LockKeyhole,
+  Satellite,
+  Ship,
+  Siren,
+  ShieldCheck,
+} from 'lucide-react'
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
@@ -8,6 +21,7 @@ import './Projects.css'
 const projects = [
   {
     name: 'English → SQL Converter',
+    icon: Code2,
     description: 'A natural-language-to-SQL application powered by the Gemini API that converts plain-English requests into executable SQL queries.',
     objectives: [
       'Convert natural-language requests into executable SQL queries.',
@@ -18,7 +32,8 @@ const projects = [
   },
   {
     name: 'Attendance Tracker',
-    description: 'A Streamlit-based attendance management system for recording, viewing, and visualising daily and weekly attendance information.',
+    icon: CalendarDays,
+    description: 'A Streamlit-based tool for daily and weekly attendance tracking and visualisation, using NumPy, Pandas, and Scikit-learn for backend analytics.',
     objectives: [
       'Simplify attendance recording and management.',
       'Maintain organised attendance records.',
@@ -28,6 +43,7 @@ const projects = [
   },
   {
     name: 'Secure Password Manager',
+    icon: LockKeyhole,
     description: 'A multi-user password management application featuring encrypted credential storage, password generation, strength validation, search, and categories.',
     objectives: [
       'Store user credentials securely.',
@@ -38,6 +54,7 @@ const projects = [
   },
   {
     name: 'IoT Device Monitoring & Alert System',
+    icon: Activity,
     description: 'An IoT monitoring solution developed during my two-month internship at Ybranium Technologies, focused on real-time device monitoring, automated alerts, and data logging for industrial applications.',
     objectives: [
       'Monitor connected devices in real time.',
@@ -48,7 +65,8 @@ const projects = [
   },
   {
     name: 'Nexcell EV Battery SOH Predictor',
-    description: 'An AI/ML-based application that predicts the State of Health (SOH) of electric vehicle batteries using parameters such as current, voltage, temperature, and impedance.',
+    icon: BatteryCharging,
+    description: 'A machine-learning application that predicts electric vehicle battery State of Health (SOH) from current, voltage, temperature, and impedance data, using XGBoost, FastAPI, and AWS EC2.',
     objectives: [
       'Predict electric vehicle battery State of Health.',
       'Apply machine learning to battery-related data.',
@@ -58,7 +76,8 @@ const projects = [
   },
   {
     name: 'Mental Health Monitoring System',
-    description: 'A machine learning and deep learning-based system explored during the X-Fair Hackathon 2025 Ideathon to analyse behavioural data and identify patterns potentially associated with mental well-being.',
+    icon: BrainCircuit,
+    description: 'A non-diagnostic machine-learning and deep-learning system explored during the XFair Hackathon 2025 Ideathon, using CNN-based behavioural pattern analysis related to mental well-being.',
     objectives: [
       'Analyse behavioural data for relevant patterns.',
       'Explore machine learning and CNN-based approaches.',
@@ -68,7 +87,8 @@ const projects = [
   },
   {
     name: 'AI Smart Helmet for Hazard Detection',
-    description: 'An AI-based smart helmet concept explored during HackMIT 2025, focused on real-time workplace hazard detection using computer vision.',
+    icon: ShieldCheck,
+    description: 'A computer-vision-based smart helmet concept for real-time workplace hazard detection, explored at HackMIT 2025 Ideathon, where I also volunteered.',
     objectives: [
       'Explore real-time workplace hazard detection.',
       'Identify potentially unsafe situations.',
@@ -78,7 +98,8 @@ const projects = [
   },
   {
     name: 'Krishisat AI',
-    description: 'A cloud-native satellite analytics platform designed to map crop species and forecast eight-day field water deficits to support precision canal irrigation.',
+    icon: Satellite,
+    description: 'A cloud-native satellite analytics platform for crop mapping and eight-day field water-deficit forecasts to support precision irrigation.',
     objectives: [
       'Map crop species using satellite-based analysis.',
       'Forecast field water deficits over an eight-day period.',
@@ -88,7 +109,8 @@ const projects = [
   },
   {
     name: 'ShipWise',
-    description: 'An AI-powered maritime decision-support platform designed to optimise bulk coking coal vessel chartering and help prevent costly port demurrage.',
+    icon: Ship,
+    description: 'An AI-based maritime decision-support system for bulk coking coal vessel chartering, designed to help avoid costly port demurrage.',
     objectives: [
       'Optimise bulk vessel chartering decisions.',
       'Analyse relevant maritime and port information.',
@@ -98,6 +120,7 @@ const projects = [
   },
   {
     name: 'Emergency Response Simulator',
+    icon: Siren,
     description: 'A desktop-based simulation system for urban emergency dispatch, vehicle routing, and priority-based incident management.',
     objectives: [
       'Simulate emergency dispatch operations.',
@@ -108,6 +131,7 @@ const projects = [
   },
   {
     name: 'Digital Subscriptions & Licence Vault',
+    icon: KeyRound,
     description: 'A centralised web application for managing digital subscriptions, software licence keys, renewal information, and shared family-plan seats.',
     objectives: [
       'Centralise subscription and licence management.',
@@ -120,19 +144,28 @@ const projects = [
 
 function ProjectCard({ project, index }) {
   const [objectivesOpen, setObjectivesOpen] = useState(false)
+  const Icon = project.icon
   const projectNumber = String(index + 1).padStart(2, '0')
   const titleId = `project-title-${projectNumber}`
   const objectivesId = `project-objectives-${projectNumber}`
+  const entryClass = index === 0 ? 'project-entry project-entry--featured' : 'project-entry'
+  const cardClass = index === 0 ? 'portfolio-project portfolio-project--featured' : 'portfolio-project'
 
   return (
-    <Reveal className="project-entry" delay={index * 0.035}>
-      <Card aria-labelledby={titleId} className="portfolio-project">
-        <span aria-hidden="true" className="portfolio-project__number">{projectNumber}</span>
-        <h2 className="portfolio-project__title" id={titleId}>{project.name}</h2>
-        <p className="portfolio-project__description">{project.description}</p>
+    <Reveal className={entryClass} delay={index * 0.035}>
+      <Card aria-labelledby={titleId} className={cardClass}>
+        <div className="portfolio-project__main">
+          <div className="portfolio-project__top">
+            <span className="portfolio-project__icon"><Icon aria-hidden="true" size={19} strokeWidth={1.7} /></span>
+            <span aria-hidden="true" className="portfolio-project__number">{projectNumber}</span>
+          </div>
+          <h2 className="portfolio-project__title" id={titleId}>{project.name}</h2>
+          <p className="portfolio-project__description">{project.description}</p>
+        </div>
         <div className="portfolio-project__objectives">
           <button
             aria-controls={objectivesId}
+            aria-label={`${objectivesOpen ? 'Hide' : 'View'} objectives for ${project.name}`}
             aria-expanded={objectivesOpen}
             className="portfolio-project__toggle"
             onClick={() => setObjectivesOpen((open) => !open)}
@@ -163,11 +196,19 @@ function Projects() {
         as="section"
         className="projects-intro"
       >
-        <p className="projects-eyebrow">SELECTED WORK</p>
-        <h1 className="projects-intro__title" id="projects-title">Selected Projects</h1>
-        <p className="projects-intro__description">
-          A collection of academic, personal, and collaborative projects through which I explore software development, artificial intelligence, machine learning, and practical problem-solving.
-        </p>
+        <div className="projects-intro__copy">
+          <p className="projects-eyebrow">SELECTED WORK</p>
+          <h1 className="projects-intro__title" id="projects-title">Selected Projects</h1>
+          <p className="projects-intro__description">
+            Across academic, personal, and collaborative work, I explore how software and AI can address practical problems.
+          </p>
+        </div>
+        <aside aria-label="Themes across the project collection" className="projects-intro__themes">
+          <p>AREAS OF EXPLORATION</p>
+          <span>Software development</span>
+          <span>Artificial intelligence</span>
+          <span>Practical problem-solving</span>
+        </aside>
       </Reveal>
 
       <section aria-label="Project portfolio" className="projects-grid">
