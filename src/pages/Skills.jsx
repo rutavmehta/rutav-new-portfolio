@@ -33,9 +33,9 @@ const skillCategories = [
     title: 'Core Concepts',
     icon: BrainCircuit,
     skills: [
-      'Object-Oriented Programming (OOP)',
+      'Object-Oriented Programming',
       'Data Structures & Algorithms',
-      'Database Management Systems (DBMS)',
+      'DBMS',
       'Operating Systems',
       'Machine Learning',
       'Artificial Intelligence',
@@ -91,11 +91,13 @@ function Skills() {
               key={title}
             >
               <article className="skills-card">
-                <div className="skills-card__top">
+                <div className="skills-card__heading">
                   <span className="skills-card__icon"><Icon aria-hidden="true" size={19} strokeWidth={1.7} /></span>
-                  <span className="skills-card__index">0{index + 1}</span>
+                  <div className="skills-card__title">
+                    <span aria-hidden="true" className="skills-card__index">0{index + 1}</span>
+                    <h3>{title}</h3>
+                  </div>
                 </div>
-                <h3>{title}</h3>
                 <ul aria-label={`${title} skills`} className="skills-card__list">
                   {skills.map((skill) => <li key={skill}>{skill}</li>)}
                 </ul>
