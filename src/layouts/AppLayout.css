@@ -1,0 +1,89 @@
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-shell__main {
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  background-image: radial-gradient(ellipse at 92% 3%, var(--color-page-glow), transparent 36%);
+  transition: background-color var(--transition-base);
+}
+
+.app-shell__main > div {
+  flex: 1;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--page-gutter);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.mobile-menu-toggle,
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .app-shell__main {
+    margin-left: 0;
+  }
+
+  .mobile-menu-toggle {
+    position: fixed;
+    z-index: 40;
+    top: 18px;
+    left: 18px;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: left var(--transition-base), background-color var(--transition-base), border-color var(--transition-base);
+  }
+
+  .mobile-menu-toggle--open {
+    left: min(242px, calc(100vw - 92px));
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    z-index: 29;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgb(15 20 27 / 48%);
+    animation: backdrop-enter var(--transition-base) both;
+  }
+
+  .site-footer {
+    padding: var(--space-5) var(--space-5);
+  }
+}
+
+@media (max-width: 420px) {
+  .site-footer {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
+@keyframes backdrop-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

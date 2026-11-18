@@ -1,0 +1,573 @@
+.experience-page {
+  padding-top: clamp(34px, 5vw, 58px);
+}
+
+.experience-eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.experience-intro {
+  position: relative;
+  min-height: 255px;
+  overflow: hidden;
+  padding: clamp(30px, 5vw, 56px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(ellipse at 87% 14%, var(--color-hero-glow), transparent 36%),
+    linear-gradient(118deg, var(--color-hero-start), var(--color-hero-end));
+  box-shadow: var(--shadow-xs);
+}
+
+.experience-intro::after {
+  position: absolute;
+  right: -120px;
+  bottom: -240px;
+  width: 430px;
+  height: 430px;
+  border: 1px solid var(--color-art-line);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.experience-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.experience-intro__title {
+  margin: 13px 0 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.2vw, 62px);
+  font-weight: 520;
+  letter-spacing: -0.06em;
+  line-height: 1.03;
+}
+
+.experience-intro__description {
+  max-width: 700px;
+  margin: 15px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.experience-section {
+  margin-top: clamp(66px, 8vw, 100px);
+}
+
+.experience-section__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.experience-section__title {
+  margin: 10px 0 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 43px);
+  font-weight: 520;
+  letter-spacing: -0.05em;
+  line-height: 1.12;
+}
+
+.experience-linked {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) 44px minmax(0, 0.92fr);
+  align-items: stretch;
+}
+
+.experience-linked__internship,
+.experience-linked__project {
+  min-width: 0;
+  height: 100%;
+}
+
+.internship-card,
+.related-project-card,
+.leadership-card,
+.event-card,
+.tabla-card {
+  height: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.internship-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 25px 22px;
+}
+
+.internship-card__top,
+.related-project-card__top,
+.event-card__top {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.experience-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-accent-border);
+  border-radius: 11px;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.experience-icon--soft {
+  background: var(--color-surface);
+}
+
+.experience-card__index {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.6;
+}
+
+.internship-card h3,
+.related-project-card h3,
+.event-card h3,
+.tabla-card h3 {
+  margin: 17px 0 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 540;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.internship-card__organisation {
+  margin: 5px 0 0;
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.internship-card__meta,
+.event-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 16px;
+  margin-top: 17px;
+}
+
+.internship-card__meta span,
+.event-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.internship-card__meta svg,
+.event-card__meta svg {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+.internship-card__description,
+.related-project-card > p,
+.leadership-card__content > p,
+.event-card__main > p,
+.tabla-card__description {
+  margin: 16px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.experience-linked__connector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.experience-linked__connector span {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--color-accent-border);
+}
+
+.experience-linked__connector svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+}
+
+.related-project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 24px 25px;
+  background:
+    radial-gradient(ellipse at 100% 0%, var(--color-page-glow), transparent 42%),
+    var(--color-surface);
+}
+
+.related-project-card::after {
+  position: absolute;
+  right: -70px;
+  bottom: -100px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--color-art-line);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.related-project-card h3,
+.related-project-card > p {
+  position: relative;
+  z-index: 1;
+}
+
+.experience-involvement {
+  margin-top: clamp(66px, 7vw, 88px);
+}
+
+.leadership-entry,
+.event-entry,
+.tabla-entry {
+  min-width: 0;
+}
+
+.leadership-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 28px;
+  align-items: center;
+  padding: 25px;
+  background:
+    radial-gradient(ellipse at 0% 100%, var(--color-page-glow), transparent 38%),
+    var(--color-surface);
+}
+
+.leadership-card__identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.leadership-card__identity > div {
+  min-width: 0;
+}
+
+.leadership-card__identity h3 {
+  margin: 9px 0 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2.5vw, 28px);
+  font-weight: 540;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+}
+
+.leadership-card__identity h3 span {
+  color: var(--color-text-secondary);
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.leadership-card__institution {
+  margin: 7px 0 0;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.leadership-card__content {
+  padding-left: 26px;
+  border-left: 1px solid var(--color-border);
+}
+
+.leadership-card__content > p {
+  margin-top: 0;
+}
+
+.experience-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-labels li {
+  padding: 6px 10px;
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  background: var(--color-accent-soft);
+  font-size: 10px;
+  font-weight: 560;
+  line-height: 1.45;
+}
+
+.experience-event {
+  margin-top: clamp(66px, 7vw, 88px);
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: 28px;
+  padding: 25px;
+}
+
+.event-card__main h3 {
+  font-size: clamp(25px, 3vw, 34px);
+}
+
+.event-card__responsibilities {
+  align-self: stretch;
+  padding: 7px 0 0 25px;
+  border-left: 1px solid var(--color-border);
+}
+
+.event-card__responsibilities .experience-labels {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.event-card__responsibilities .experience-labels li {
+  max-width: 100%;
+}
+
+.experience-beyond {
+  margin-top: clamp(66px, 7vw, 88px);
+}
+
+.tabla-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.38fr) minmax(0, 1fr);
+  overflow: hidden;
+  border-color: var(--color-accent-border);
+  background: var(--color-surface);
+}
+
+.tabla-card__year {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border-right: 1px solid var(--color-border);
+  color: var(--color-accent);
+  background:
+    radial-gradient(ellipse at 50% 12%, var(--color-hero-glow), transparent 45%),
+    var(--color-accent-soft);
+}
+
+.tabla-card__year span {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 48px);
+  font-style: italic;
+  font-weight: 520;
+  letter-spacing: -0.05em;
+}
+
+.tabla-card__content {
+  align-self: center;
+  padding: 28px clamp(23px, 4vw, 42px);
+}
+
+.tabla-card h3 {
+  margin-top: 9px;
+}
+
+.tabla-card__description {
+  max-width: 690px;
+  margin-top: 11px;
+}
+
+.tabla-card__details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--color-border);
+  list-style: none;
+}
+
+.tabla-card__details li {
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.tabla-card__qualities {
+  margin: 14px 0 0;
+  color: var(--color-accent);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .experience-linked {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .experience-linked__connector {
+    min-height: 40px;
+  }
+
+  .experience-linked__connector span {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: auto;
+  }
+
+  .experience-linked__connector svg {
+    transform: rotate(90deg);
+  }
+
+  .leadership-card,
+  .event-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .leadership-card__content,
+  .event-card__responsibilities {
+    padding: 18px 0 0;
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+
+  .event-card__responsibilities .experience-labels {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .experience-page {
+    padding-top: 82px;
+  }
+}
+
+@media (max-width: 620px) {
+  .experience-page {
+    padding-top: 78px;
+  }
+
+  .experience-intro {
+    min-height: 0;
+    padding: 28px 22px 24px;
+    border-radius: 16px;
+  }
+
+  .experience-intro__title {
+    margin-top: 12px;
+    font-size: clamp(37px, 10vw, 50px);
+  }
+
+  .experience-intro__description {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+
+  .experience-section__heading {
+    margin-bottom: 19px;
+  }
+
+  .internship-card,
+  .related-project-card,
+  .leadership-card,
+  .event-card {
+    padding: 20px;
+  }
+
+  .internship-card h3,
+  .related-project-card h3 {
+    font-size: 25px;
+  }
+
+  .leadership-card__identity h3 {
+    font-size: 23px;
+  }
+
+  .event-card__responsibilities .experience-labels {
+    gap: 7px;
+  }
+
+  .tabla-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tabla-card__year {
+    min-height: 110px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 13px;
+    padding: 0 21px;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tabla-card__year span {
+    font-size: 32px;
+  }
+
+  .tabla-card__content {
+    padding: 21px;
+  }
+
+  .tabla-card h3 {
+    font-size: 25px;
+  }
+
+  .tabla-card__details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-linked__connector svg {
+    transition: none;
+  }
+}
