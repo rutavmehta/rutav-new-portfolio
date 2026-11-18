@@ -2,6 +2,7 @@ import {
   Award,
   Building2,
   CalendarDays,
+  Clock3,
   FileCheck2,
   GraduationCap,
   MapPin,
@@ -15,62 +16,69 @@ import './Achievements.css'
 
 const achievements = [
   {
-    title: 'IGNISIA 24-HOUR NATIONAL-LEVEL AI HACKATHON',
+    title: 'Ignisia 24-Hour National-Level AI Hackathon',
+    category: 'Hackathon service',
     icon: Award,
     featured: true,
-    institution: 'MIT World Peace University, Pune',
+    institution: 'MIT-WPU',
+    location: 'Pune',
     role: 'Committee Member',
     date: 'April 2026',
     recognition: 'Certificate of Appreciation',
-    description: 'Contributed as a committee member to the organisation of the 24-hour national-level AI hackathon conducted under Ignisia at MIT-WPU.',
+    description: 'Contributed to the event as a committee member.',
   },
   {
-    title: 'YBRANIUM TECHNOLOGIES — INTERNSHIP',
+    title: 'Ybranium Technologies Internship',
+    category: 'Professional experience',
     icon: Building2,
     organisation: 'Ybranium Technologies',
     location: 'Anand, Gujarat',
     role: 'Junior Engineer',
     date: 'June–August 2025',
-    dateLabel: 'Duration',
-    description: 'Completed a two-month internship involving collaborative engineering work and project development, including the IoT Device Monitoring & Alert System.',
+    duration: '2 months',
+    project: 'IoT Device Monitoring & Alert System',
+    description: 'Collaborative engineering and project development.',
   },
   {
-    title: 'INNOVISION 2026',
+    title: 'Innovision 2026',
+    category: 'Project exhibition',
     icon: Presentation,
-    institution: 'MIT-WPU, Department of Polytechnic & Skill Development',
+    institution: 'MIT-WPU Department of Polytechnic & Skill Development',
     date: 'February 2026',
-    recognition: 'Project Exhibition Participation',
-    description: "Participated in Innovision 2026, a project exhibition organised by MIT-WPU's Department of Polytechnic & Skill Development.",
+    description: 'Project exhibition participation.',
   },
   {
-    title: 'ACADEMIC PERFORMANCE',
+    title: 'Academic Performance',
+    category: 'Academic',
     icon: GraduationCap,
-    institution: 'MIT World Peace University, Pune',
-    achievement: 'CGPA 7.90/10',
-    description: 'Academic performance during my integrated Diploma and B.Tech journey in Computer Science and Engineering (Artificial Intelligence and Data Science).',
+    institution: 'MIT-WPU',
+    programme: 'Integrated Diploma + B.Tech CSE (AI & DS)',
+    achievement: 'CGPA: 7.90/10',
+    description: 'Academic performance in the integrated programme.',
   },
   {
-    title: 'BHARATIYA ANTARIKSH HACKATHON 2026',
+    title: 'Bharatiya Antariksh Hackathon 2026',
+    category: 'Hackathon submission',
     icon: FileCheck2,
     organisation: 'ISRO / Hack2skill',
     date: '2026',
-    dateLabel: 'Year',
-    recognition: 'Idea Successfully Submitted',
-    description: 'Successfully submitted an idea for the Bharatiya Antariksh Hackathon 2026.',
+    description: 'Successfully submitted an idea.',
   },
   {
-    title: 'IGNISIA CLUB LEADERSHIP',
+    title: 'Ignisia Club Leadership',
+    category: 'Leadership',
     icon: UsersRound,
-    organisation: 'Ignisia | AI & Innovation Club',
-    institution: 'MIT-WPU, Pune',
+    organisation: 'Ignisia',
+    institution: 'MIT-WPU',
     roles: ['Treasurer', 'Documentation Department Head'],
-    description: 'Contributed to university club activities through finance-related responsibilities and documentation work.',
+    description: 'Leadership roles within the Ignisia club.',
   },
 ]
 
 function AchievementCard({ achievement, index }) {
   const {
     title,
+    category,
     icon: Icon,
     featured,
     institution,
@@ -78,9 +86,11 @@ function AchievementCard({ achievement, index }) {
     location,
     role,
     date,
-    dateLabel = 'Date',
+    duration,
     recognition,
     achievement: academicAchievement,
+    programme,
+    project,
     roles,
     description,
   } = achievement
@@ -91,11 +101,11 @@ function AchievementCard({ achievement, index }) {
       delay={index * 0.045}
     >
       <Card className={`achievement-card${featured ? ' achievement-card--featured' : ''}`}>
-        <div className="achievement-card__identity">
+        <div className="achievement-card__header">
           <span aria-hidden="true" className="achievement-card__icon">
-            <Icon size={featured ? 22 : 19} strokeWidth={1.7} />
+            <Icon size={featured ? 23 : 19} strokeWidth={1.65} />
           </span>
-          <span className="achievement-card__number">0{index + 1}</span>
+          <p className="achievement-card__category">{category}</p>
         </div>
 
         <div className="achievement-card__content">
@@ -111,18 +121,28 @@ function AchievementCard({ achievement, index }) {
               <span><MapPin aria-hidden="true" size={14} />{location}</span>
             )}
             {date && (
-              <span><CalendarDays aria-hidden="true" size={14} />{dateLabel}: {date}</span>
+              <span><CalendarDays aria-hidden="true" size={14} />{date}</span>
+            )}
+            {duration && (
+              <span><Clock3 aria-hidden="true" size={14} />{duration}</span>
             )}
           </div>
+          {programme && <p className="achievement-card__programme">{programme}</p>}
           <p className="achievement-card__description">{description}</p>
 
-          {(role || recognition || academicAchievement || roles) && (
+          {(role || recognition || academicAchievement || project || roles) && (
             <div className="achievement-card__details">
               {role && <span className="achievement-card__label">{role}</span>}
               {recognition && <span className="achievement-card__label">{recognition}</span>}
               {academicAchievement && (
                 <span className="achievement-card__label achievement-card__label--result">
                   {academicAchievement}
+                </span>
+              )}
+              {project && (
+                <span className="achievement-card__project">
+                  <span>Associated project</span>
+                  {project}
                 </span>
               )}
               {roles?.map((clubRole) => (
@@ -145,28 +165,34 @@ function Achievements() {
         className="achievements-intro"
       >
         <div className="achievements-intro__copy">
-          <p className="achievements-eyebrow">MILESTONES &amp; RECOGNITION</p>
+          <p className="achievements-eyebrow">A record of curiosity and contribution</p>
           <h1 className="achievements-intro__title" id="achievements-title">
-            Achievements &amp; Recognition
+            Achievements<span aria-hidden="true">.</span>
           </h1>
           <p className="achievements-intro__description">
-            A collection of milestones, recognitions, academic accomplishments, and experiences that reflect my learning journey and involvement in technology.
+            A considered collection of academic, technical, and extracurricular milestones shaped by learning, collaboration, and community.
           </p>
         </div>
         <div aria-hidden="true" className="achievements-intro__mark">
-          <Award size={66} strokeWidth={0.9} />
-          <span>LEARNING IN PRACTICE</span>
+          <Award size={68} strokeWidth={0.85} />
+          <span>SELECTED MILESTONES</span>
         </div>
       </Reveal>
 
-      <section aria-label="Achievements and recognition" className="achievements-grid">
-        {achievements.map((achievement, index) => (
-          <AchievementCard
-            achievement={achievement}
-            index={index}
-            key={achievement.title}
-          />
-        ))}
+      <section aria-label="Achievements and recognition" className="achievements-section">
+        <div className="achievements-section__heading">
+          <h2>Milestones</h2>
+          <span aria-hidden="true" />
+        </div>
+        <div className="achievements-grid">
+          {achievements.map((achievement, index) => (
+            <AchievementCard
+              achievement={achievement}
+              index={index}
+              key={achievement.title}
+            />
+          ))}
+        </div>
       </section>
     </PageContainer>
   )
