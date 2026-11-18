@@ -1,7 +1,7 @@
 import { BrainCircuit, Code2, Database, GraduationCap, Lightbulb, Music2, UsersRound } from 'lucide-react'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
-import profilePhotoPlaceholder from '../assets/profile-photo-placeholder.svg'
+import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
 import './About.css'
 
 const interests = [
@@ -78,13 +78,13 @@ function About() {
           <div className="about-portrait__frame">
             <span aria-hidden="true" className="about-portrait__index">01</span>
             <img
-              alt="Replaceable profile photograph placeholder"
+              alt="Rutav Mehta – Profile Photograph"
               className="about-portrait__image"
-              src={profilePhotoPlaceholder}
+              src={profilePhoto}
             />
             <div className="about-portrait__caption">
               <span>PROFILE PHOTOGRAPH</span>
-              <span>REPLACEABLE ASSET</span>
+              <span>RUTAV MEHTA</span>
             </div>
           </div>
         </Reveal>

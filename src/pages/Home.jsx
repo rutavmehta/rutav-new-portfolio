@@ -3,7 +3,7 @@ import Button from '../components/ui/Button.jsx'
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
-import profilePhotoPlaceholder from '../assets/profile-photo-placeholder.svg'
+import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
 import { professionalInterests, recentActivity, selectedProjects } from '../data/portfolioHome.js'
 import './Home.css'
 
@@ -51,13 +51,13 @@ function Home() {
           <div className="portrait-frame">
             <div aria-hidden="true" className="portrait-frame__corner portrait-frame__corner--top" />
             <img
-              alt="Profile photograph placeholder for Rutav Ritesh Mehta"
+              alt="Rutav Mehta – Profile Photograph"
               className="portrait-frame__image"
-              src={profilePhotoPlaceholder}
+              src={profilePhoto}
             />
             <div className="portrait-frame__caption">
               <span>PROFILE PHOTOGRAPH</span>
-              <span>REPLACEABLE ASSET</span>
+              <span>RUTAV MEHTA</span>
             </div>
             <div aria-hidden="true" className="portrait-frame__index">01</div>
           </div>

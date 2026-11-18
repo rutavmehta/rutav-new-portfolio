@@ -123,6 +123,7 @@
   background: var(--color-accent-soft);
   box-shadow: 0 0 0 1px var(--color-border), var(--shadow-md);
   object-fit: cover;
+  object-position: center 38%;
 }
 
 .about-portrait__index {

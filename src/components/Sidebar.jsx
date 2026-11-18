@@ -1,6 +1,6 @@
 import { BriefcaseBusiness, GitBranch, Menu, Moon, Sun, X } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
-import profilePhotoPlaceholder from '../assets/profile-photo-placeholder.svg'
+import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
 import { navigationItems } from '../data/navigation.js'
 import { useTheme } from '../hooks/useTheme.js'
 import './Sidebar.css'
@@ -70,9 +70,9 @@ function Sidebar({
       >
         <div className="profile">
           <img
-            alt="Profile photo placeholder; replace with your photograph"
+            alt="Rutav Mehta – Profile Photograph"
             className="profile__photo"
-            src={profilePhotoPlaceholder}
+            src={profilePhoto}
           />
           <div className="profile__identity">
             <p className="profile__name" id="profile-name">Rutav Ritesh Mehta</p>

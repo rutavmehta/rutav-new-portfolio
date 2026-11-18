@@ -9,12 +9,19 @@ import {
   MapPin,
   X,
 } from 'lucide-react'
+import antarikshHackathonCertificate from '../assets/certificates/antariksh-hackathon.jpeg'
+import ignisiaHackathonCertificate from '../assets/certificates/ignisia-hackathon.jpeg'
+import internshipCertificate from '../assets/certificates/internship.png'
+import innovisionCertificate from '../assets/certificates/innovision.png'
+import javaCourseCertificate from '../assets/certificates/java-course.png'
+import powerBiCertificate from '../assets/certificates/power-bi.png'
+import pythonWorkshopCertificate from '../assets/certificates/python-workshop.png'
+import xfairHackathonCertificate from '../assets/certificates/xfair-hackathon.jpeg'
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
 import './Certifications.css'
 
-// Set image to a valid JPG/PNG path under public/ when a certificate image is available.
 const certificates = [
   {
     id: 'iot-device-monitoring-internship',
@@ -25,7 +32,7 @@ const certificates = [
     duration: 'June–August 2025',
     issueDate: '8 August 2025',
     category: 'Internship',
-    image: '',
+    image: internshipCertificate,
     details: [],
   },
   {
@@ -36,7 +43,7 @@ const certificates = [
     date: '13 February 2026',
     dateLabel: 'Date',
     category: 'Events & Participation',
-    image: '',
+    image: innovisionCertificate,
     details: [],
   },
   {
@@ -46,7 +53,7 @@ const certificates = [
     organisation: 'AI For Techies – Aditya Kachave',
     issueDate: '20 July 2025',
     category: 'Workshops',
-    image: '',
+    image: pythonWorkshopCertificate,
     details: [],
   },
   {
@@ -55,7 +62,7 @@ const certificates = [
     certificateType: 'Certificate of Appreciation',
     organisation: 'MIT-WPU – Department of Polytechnic & Skill Development and Department of Computer Engineering & Technology',
     category: 'Hackathons',
-    image: '',
+    image: ignisiaHackathonCertificate,
     details: [],
   },
   {
@@ -66,7 +73,7 @@ const certificates = [
     date: '7–8 November 2025',
     dateLabel: 'Dates',
     category: 'Hackathons',
-    image: '',
+    image: xfairHackathonCertificate,
     details: [],
   },
   {
@@ -76,7 +83,7 @@ const certificates = [
     organisation: 'Microsoft · Simplilearn SkillUP',
     issueDate: '3 November 2025',
     category: 'Courses',
-    image: '',
+    image: powerBiCertificate,
     details: ['Certificate Code: 9303401'],
   },
   {
@@ -86,7 +93,7 @@ const certificates = [
     organisation: 'Scaler Topics',
     issueDate: '5 November 2025',
     category: 'Courses',
-    image: '',
+    image: javaCourseCertificate,
     details: ['86 Tutorials · 12 Modules · 9 Challenges'],
   },
   {
@@ -95,7 +102,7 @@ const certificates = [
     certificateType: 'Certificate of Participation',
     organisation: 'ISRO · Powered by Hack2skill',
     category: 'Hackathons',
-    image: '',
+    image: antarikshHackathonCertificate,
     details: ['Certificate ID: 2026H2S06BAH-P29713'],
   },
 ]

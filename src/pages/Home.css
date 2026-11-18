@@ -161,6 +161,7 @@
   width: min(76%, 252px);
   aspect-ratio: 1;
   object-fit: cover;
+  object-position: center 38%;
   border: 5px solid var(--color-surface);
   border-radius: var(--radius-full);
   background: var(--color-accent-soft);
