@@ -1,4 +1,5 @@
 import { BrainCircuit, Code2, Database, GraduationCap, Lightbulb, Music2, UsersRound } from 'lucide-react'
+import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
 import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
@@ -62,7 +63,7 @@ function About() {
             A little about <span>me.</span>
           </h1>
           <div className="about-intro__body">
-            <p>
+            <p className="about-intro__lead">
               I am a Computer Science and Engineering student specializing in Artificial Intelligence and Data Science at MIT World Peace University, Pune.
             </p>
             <p>
@@ -74,19 +75,20 @@ function About() {
           </div>
         </Reveal>
 
-        <Reveal className="about-portrait" delay={0.1}>
-          <div className="about-portrait__frame">
-            <span aria-hidden="true" className="about-portrait__index">01</span>
+        <Reveal className="about-portrait" delay={0.12}>
+          <figure className="about-portrait__frame">
             <img
               alt="Rutav Mehta – Profile Photograph"
               className="about-portrait__image"
               src={profilePhoto}
             />
-            <div className="about-portrait__caption">
+            <span aria-hidden="true" className="about-portrait__shade" />
+            <span aria-hidden="true" className="about-portrait__index">01</span>
+            <figcaption className="about-portrait__caption">
               <span>PROFILE PHOTOGRAPH</span>
               <span>RUTAV MEHTA</span>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         </Reveal>
       </section>
 
@@ -118,7 +120,7 @@ function About() {
               <article className="journey-step" key={title}>
                 <span aria-hidden="true" className="journey-step__number">0{index + 1}</span>
                 <span className="journey-step__icon"><Icon aria-hidden="true" size={18} strokeWidth={1.7} /></span>
-                <div>
+                <div className="journey-step__copy">
                   <h3>{title}</h3>
                   <p>{description}</p>
                 </div>
@@ -145,14 +147,21 @@ function About() {
 
         <div className="about-interest-grid">
           {interests.map(({ title, description, icon: Icon }, index) => (
-            <article className="about-interest" key={title}>
-              <div className="about-interest__top">
-                <span className="about-interest__number">0{index + 1}</span>
-                <span className="about-interest__icon"><Icon aria-hidden="true" size={19} strokeWidth={1.7} /></span>
-              </div>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
+            <Reveal
+              className="about-interest-entry"
+              delay={index * 0.045}
+              key={title}
+            >
+              <Card className="about-interest">
+                <div className="about-interest__top">
+                  <span className="about-interest__number">0{index + 1}</span>
+                  <span className="about-interest__icon"><Icon aria-hidden="true" size={20} strokeWidth={1.7} /></span>
+                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <span aria-hidden="true" className="about-interest__rule" />
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Reveal>
@@ -173,32 +182,36 @@ function About() {
         </div>
 
         <div className="beyond-layout">
-          <article className="beyond-club">
-            <div className="beyond-club__top">
-              <span className="beyond-club__icon"><BrainCircuit aria-hidden="true" size={20} strokeWidth={1.7} /></span>
-              <span className="beyond-club__index">01 / COMMUNITY</span>
-            </div>
-            <p className="beyond-club__eyebrow">MIT WORLD PEACE UNIVERSITY</p>
-            <h3>IGNISIA <span>AI &amp; Innovation Club</span></h3>
-            <div className="beyond-club__roles">
-              <p><span>Treasurer</span><span>Documentation Department Head</span></p>
-            </div>
-          </article>
+          <Reveal className="beyond-entry beyond-entry--club">
+            <Card className="beyond-club">
+              <div className="beyond-club__top">
+                <span className="beyond-club__icon"><BrainCircuit aria-hidden="true" size={20} strokeWidth={1.7} /></span>
+                <span className="beyond-club__index">01 / COMMUNITY</span>
+              </div>
+              <p className="beyond-club__eyebrow">MIT WORLD PEACE UNIVERSITY</p>
+              <h3>IGNISIA <span>AI &amp; Innovation Club</span></h3>
+              <div className="beyond-club__roles">
+                <p><span>Treasurer</span><span>Documentation Department Head</span></p>
+              </div>
+            </Card>
+          </Reveal>
 
-          <article className="beyond-music">
-            <div className="beyond-music__header">
-              <span className="beyond-music__icon"><Music2 aria-hidden="true" size={19} strokeWidth={1.7} /></span>
-              <span className="beyond-music__index">02 / PRACTICE</span>
-            </div>
-            <div className="beyond-music__content">
-              <p className="beyond-music__eyebrow">MUSIC &amp; TABLA</p>
-              <h3>A practice built over time.</h3>
-              <p>
-                Practising Tabla since 2014, beginning at Navrachana International School, Vadodara. The long-term commitment has highlighted the value of dedication, discipline, and consistency.
-              </p>
-            </div>
-            <span aria-hidden="true" className="beyond-music__year">2014</span>
-          </article>
+          <Reveal className="beyond-entry beyond-entry--music" delay={0.08}>
+            <Card className="beyond-music">
+              <div className="beyond-music__header">
+                <span className="beyond-music__icon"><Music2 aria-hidden="true" size={19} strokeWidth={1.7} /></span>
+                <span className="beyond-music__index">02 / PRACTICE</span>
+              </div>
+              <div className="beyond-music__content">
+                <p className="beyond-music__eyebrow">MUSIC &amp; TABLA</p>
+                <h3>A practice built over time.</h3>
+                <p>
+                  Practising Tabla since 2014, beginning at Navrachana International School, Vadodara. The long-term commitment has highlighted the value of dedication, discipline, and consistency.
+                </p>
+              </div>
+              <span aria-hidden="true" className="beyond-music__year">2014</span>
+            </Card>
+          </Reveal>
         </div>
       </Reveal>
 
@@ -218,7 +231,7 @@ function About() {
           <ul aria-label="Personal qualities" className="approach-qualities">
             {qualities.map((quality, index) => (
               <li key={quality}>
-                <span>0{index + 1}</span>
+                <span aria-hidden="true">0{index + 1}</span>
                 {quality}
               </li>
             ))}
