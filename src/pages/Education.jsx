@@ -13,7 +13,7 @@ import './Education.css'
 
 const stages = [
   {
-    label: 'STAGE 1',
+    label: 'DIPLOMA',
     name: 'Diploma',
     degree: 'Diploma in Computer Science and Engineering (Artificial Intelligence and Data Science)',
     duration: '2023–2026',
@@ -21,7 +21,7 @@ const stages = [
     result: '7.90',
   },
   {
-    label: 'STAGE 2',
+    label: 'B.TECH',
     name: 'B.Tech',
     degree: 'B.Tech in Computer Science and Engineering (Artificial Intelligence and Data Science)',
     duration: '2023–2029',
@@ -63,165 +63,188 @@ function Education() {
         className="education-intro"
       >
         <div className="education-intro__copy">
-          <p className="education-eyebrow">EDUCATION / 01</p>
-          <h1 className="education-intro__title" id="education-title">My Academic Journey</h1>
+          <p className="education-eyebrow">EDUCATION</p>
+          <h1 className="education-intro__title" id="education-title">
+            My Academic Journey
+          </h1>
           <p className="education-intro__description">
-            An integrated academic journey focused on building a strong foundation in computer science, artificial intelligence and data science.
+            An integrated Diploma + B.Tech pathway at MIT World Peace University,
+            bringing six years of computer science, AI and data science study
+            together from 2023 to 2029.
           </p>
         </div>
         <div aria-hidden="true" className="education-intro__mark">
-          <GraduationCap size={78} strokeWidth={0.85} />
-          <span>2023 — 2029</span>
+          <GraduationCap size={43} strokeWidth={1.35} />
+          <span>2023 <i /> 2029</span>
         </div>
       </Reveal>
 
-      <Reveal
-        aria-labelledby="pathway-title"
-        as="section"
-        className="education-section education-pathway"
-      >
-        <div className="education-section__heading">
-          <div>
-            <p className="education-eyebrow">ONE CONNECTED PROGRAMME</p>
-            <h2 className="education-section__title" id="pathway-title">Integrated academic pathway</h2>
-          </div>
-          <p className="education-section__aside">
-            Two academic stages within one six-year Diploma + B.Tech programme.
-          </p>
-        </div>
-
-        <div className="education-programme">
-          <div className="education-programme__header">
-            <div className="education-programme__institution">
-              <span className="education-programme__icon">
-                <School aria-hidden="true" size={18} strokeWidth={1.7} />
-              </span>
-              <div>
-                <p>MIT WORLD PEACE UNIVERSITY</p>
-                <span>Pune</span>
-              </div>
+      <section aria-label="Academic record" className="education-bento">
+        <Reveal
+          aria-labelledby="pathway-title"
+          as="article"
+          className="education-card education-journey"
+        >
+          <div className="education-card__heading">
+            <div>
+              <p className="education-eyebrow">ONE INTEGRATED SIX-YEAR PATHWAY</p>
+              <h2 id="pathway-title">A connected academic journey</h2>
             </div>
-            <div aria-label="Integrated programme from 2023 to expected B.Tech graduation in 2029" className="education-programme__span">
-              <span>2023</span>
-              <span aria-hidden="true" className="education-programme__line" />
-              <span>EXPECTED B.TECH GRADUATION <strong>2029</strong></span>
-            </div>
+            <span aria-hidden="true" className="education-card__index">01</span>
           </div>
 
-          <ol aria-label="Integrated academic journey milestones" className="education-timeline">
-            <li className="education-timeline__milestone">
+          <div className="education-journey__institution">
+            <span className="education-icon">
+              <School aria-hidden="true" size={18} strokeWidth={1.6} />
+            </span>
+            <div>
+              <p>MIT World Peace University</p>
+              <span>Pune</span>
+            </div>
+            <span className="education-journey__programme">Diploma + B.Tech</span>
+          </div>
+
+          <ol aria-label="Integrated programme milestones" className="education-timeline">
+            <li>
               <span aria-hidden="true" className="education-timeline__dot" />
-              <span className="education-timeline__content">
-                <strong>2023</strong>
-                <span>Pathway begins</span>
-              </span>
+              <strong>2023</strong>
+              <span>Pathway begins</span>
             </li>
-            <li className="education-timeline__milestone">
+            <li>
               <span aria-hidden="true" className="education-timeline__dot" />
-              <span className="education-timeline__content">
-                <strong>2026</strong>
-                <span>Diploma stage ends</span>
-              </span>
+              <strong>2026</strong>
+              <span>Diploma concludes</span>
             </li>
-            <li className="education-timeline__milestone">
+            <li>
               <span aria-hidden="true" className="education-timeline__dot" />
-              <span className="education-timeline__content">
-                <strong>2029</strong>
-                <span>Expected B.Tech graduation</span>
-              </span>
+              <strong>2029</strong>
+              <span>Expected B.Tech graduation</span>
             </li>
           </ol>
 
           <div className="education-stages">
             {stages.map(({ label, name, degree, duration, resultLabel, result, status }, index) => (
-              <Reveal
+              <section
+                aria-label={`${name} stage`}
                 className={`education-stage education-stage--${index + 1}`}
-                delay={index * 0.08}
                 key={name}
               >
                 <div className="education-stage__top">
-                  <span className="education-stage__label">{label}</span>
-                  <span aria-hidden="true" className="education-stage__number">0{index + 1}</span>
+                  <span>{label}</span>
+                  <span aria-hidden="true">0{index + 1}</span>
                 </div>
                 <h3>{name}</h3>
                 <p className="education-stage__degree">{degree}</p>
                 <div className="education-stage__meta">
-                  <span><CalendarDays aria-hidden="true" size={14} /> {duration}</span>
-                  <span><MapPin aria-hidden="true" size={14} /> MIT World Peace University, Pune</span>
+                  <span><CalendarDays aria-hidden="true" size={14} />{duration}</span>
+                  <span><MapPin aria-hidden="true" size={14} />MIT World Peace University, Pune</span>
                 </div>
                 {status && (
-                  <div className="education-stage__status">
+                  <p className="education-stage__status">
                     <span>Current academic status</span>
                     <strong>{status}</strong>
-                  </div>
+                  </p>
                 )}
                 <div className="education-stage__result">
                   <span>{resultLabel}</span>
                   <strong>{result}</strong>
                 </div>
-              </Reveal>
+              </section>
             ))}
           </div>
-          <p className="education-programme__note">
-            Both stages are part of the same integrated programme, beginning in 2023 and expected to conclude in 2029.
-          </p>
-        </div>
-      </Reveal>
+        </Reveal>
 
-      <Reveal
-        aria-labelledby="school-title"
-        as="section"
-        className="education-section education-school"
-      >
-        <div className="education-section__heading">
-          <div>
-            <p className="education-eyebrow">BEFORE UNIVERSITY</p>
-            <h2 className="education-section__title" id="school-title">School education</h2>
-          </div>
-        </div>
-
-        <article className="school-record">
-          <div className="school-record__identity">
-            <span className="school-record__icon"><School aria-hidden="true" size={20} strokeWidth={1.6} /></span>
+        <Reveal
+          aria-labelledby="performance-title"
+          as="article"
+          className="education-card education-performance"
+          delay={0.06}
+        >
+          <div className="education-card__heading">
             <div>
-              <p className="school-record__eyebrow">NAVRACHANA INTERNATIONAL SCHOOL</p>
-              <h3>Vadodara</h3>
+              <p className="education-eyebrow">ACADEMIC RECORD</p>
+              <h2 id="performance-title">Academic performance</h2>
+            </div>
+            <span aria-hidden="true" className="education-card__index">02</span>
+          </div>
+
+          <div className="education-performance__items">
+            <div className="education-performance__item">
+              <span>Diploma · Final CGPA</span>
+              <strong>7.90</strong>
+            </div>
+            <div className="education-performance__item">
+              <span>B.Tech · Current CGPA</span>
+              <strong>7.90</strong>
+            </div>
+            <div className="education-performance__programme">
+              <span>Integrated programme</span>
+              <strong>2023–2029</strong>
             </div>
           </div>
-          <div className="school-record__details">
-            <div><span>Board</span><strong>CBSE</strong></div>
-            <div><span>Qualification</span><strong>Class 10</strong></div>
-            <div><span>Completed</span><strong>2023</strong></div>
-            <div className="school-record__result"><span>Result</span><strong>77%</strong></div>
-          </div>
-        </article>
-      </Reveal>
+        </Reveal>
 
-      <Reveal
-        aria-labelledby="highlights-title"
-        as="section"
-        className="education-section education-highlights"
-      >
-        <div className="education-section__heading">
-          <div>
-            <p className="education-eyebrow">THE ACADEMIC SNAPSHOT</p>
-            <h2 className="education-section__title" id="highlights-title">Academic highlights</h2>
+        <Reveal
+          aria-labelledby="school-title"
+          as="article"
+          className="education-card education-school"
+          delay={0.12}
+        >
+          <div className="education-card__heading">
+            <div>
+              <p className="education-eyebrow">BEFORE UNIVERSITY</p>
+              <h2 id="school-title">School education</h2>
+            </div>
+            <span aria-hidden="true" className="education-card__index">03</span>
           </div>
-        </div>
 
-        <div className="education-highlights__list">
-          {highlights.map(({ label, value, icon: Icon }, index) => (
-            <article className="education-highlight" key={label}>
-              <span className="education-highlight__index">0{index + 1}</span>
-              <span className="education-highlight__icon"><Icon aria-hidden="true" size={18} strokeWidth={1.7} /></span>
-              <div>
-                <p>{label}</p>
-                <h3>{value}</h3>
+          <div className="education-school__identity">
+            <span className="education-icon">
+              <School aria-hidden="true" size={18} strokeWidth={1.6} />
+            </span>
+            <div>
+              <h3>Navrachana International School</h3>
+              <p>Vadodara <span aria-hidden="true">·</span> CBSE</p>
+            </div>
+          </div>
+          <div className="education-school__result">
+            <div>
+              <span>Class 10</span>
+              <strong>Completed in 2023</strong>
+            </div>
+            <strong className="education-school__score">77%</strong>
+          </div>
+        </Reveal>
+
+        <Reveal
+          aria-labelledby="highlights-title"
+          as="article"
+          className="education-card education-highlights"
+          delay={0.18}
+        >
+          <div className="education-card__heading">
+            <div>
+              <p className="education-eyebrow">THE ACADEMIC SNAPSHOT</p>
+              <h2 id="highlights-title">Academic focus</h2>
+            </div>
+            <span aria-hidden="true" className="education-card__index">04</span>
+          </div>
+
+          <div className="education-highlights__list">
+            {highlights.map(({ label, value, icon: Icon }) => (
+              <div className="education-highlight" key={label}>
+                <span className="education-highlight__icon">
+                  <Icon aria-hidden="true" size={17} strokeWidth={1.6} />
+                </span>
+                <div>
+                  <p>{label}</p>
+                  <h3>{value}</h3>
+                </div>
               </div>
-            </article>
-          ))}
-        </div>
-      </Reveal>
+            ))}
+          </div>
+        </Reveal>
+      </section>
     </PageContainer>
   )
 }

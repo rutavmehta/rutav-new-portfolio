@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useLocation, Outlet } from 'react-router-dom'
 import Sidebar from '../components/Sidebar.jsx'
 import './AppLayout.css'
@@ -8,16 +8,14 @@ const currentYear = new Date().getFullYear()
 
 function AppLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
   const location = useLocation()
   const menuButtonRef = useRef(null)
-  const firstNavigationLinkRef = useRef(null)
   const navigationRef = useRef(null)
   const wasSidebarOpen = useRef(false)
 
   useEffect(() => {
-    if (isSidebarOpen) {
-      firstNavigationLinkRef.current?.focus()
-    } else if (wasSidebarOpen.current) {
+    if (!isSidebarOpen && wasSidebarOpen.current) {
       menuButtonRef.current?.focus()
     }
     wasSidebarOpen.current = isSidebarOpen
@@ -34,6 +32,20 @@ function AppLayout() {
   }, [isSidebarOpen])
 
   useEffect(() => {
+    if (!isSidebarOpen) return undefined
+
+    function handleEscape(event) {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setIsSidebarOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isSidebarOpen])
+
+  useEffect(() => {
     const desktopQuery = window.matchMedia('(min-width: 761px)')
     const closeOnDesktop = (event) => {
       if (event.matches) setIsSidebarOpen(false)
@@ -43,15 +55,18 @@ function AppLayout() {
     return () => desktopQuery.removeEventListener('change', closeOnDesktop)
   }, [])
 
+  function toggleSidebar() {
+    setIsSidebarOpen((open) => !open)
+  }
+
   return (
     <div className="app-shell">
       <Sidebar
         isOpen={isSidebarOpen}
-        firstNavigationLinkRef={firstNavigationLinkRef}
         menuButtonRef={menuButtonRef}
         navigationRef={navigationRef}
         onClose={() => setIsSidebarOpen(false)}
-        onToggle={() => setIsSidebarOpen((open) => !open)}
+        onToggle={toggleSidebar}
       />
       <div
         aria-hidden={isSidebarOpen ? 'true' : undefined}
@@ -60,9 +75,9 @@ function AppLayout() {
       >
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 8 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
           key={location.pathname}
-          transition={{ duration: 0.24, ease: 'easeOut' }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.24, ease: 'easeOut' }}
         >
           <Outlet />
         </motion.div>

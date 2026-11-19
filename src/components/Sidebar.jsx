@@ -1,5 +1,6 @@
+import { useEffect } from 'react'
 import { BriefcaseBusiness, GitBranch, Menu, Moon, Sun, X } from 'lucide-react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
 import { navigationItems } from '../data/navigation.js'
 import { useTheme } from '../hooks/useTheme.js'
@@ -10,11 +11,20 @@ function Sidebar({
   onClose,
   onToggle,
   menuButtonRef,
-  firstNavigationLinkRef,
   navigationRef,
 }) {
   const { theme, toggleTheme } = useTheme()
   const ThemeIcon = theme === 'light' ? Moon : Sun
+
+  useEffect(() => {
+    if (!isOpen) return undefined
+
+    const focusTimer = window.setTimeout(() => {
+      navigationRef.current?.querySelector('.sidebar__navigation a[href]')?.focus()
+    }, 40)
+
+    return () => window.clearTimeout(focusTimer)
+  }, [isOpen, navigationRef])
 
   function handleNavigationKeyDown(event) {
     if (!isOpen) return
@@ -58,8 +68,7 @@ function Sidebar({
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
       {isOpen && <button aria-label="Dismiss navigation drawer" className="sidebar-backdrop" onClick={onClose} type="button" />}
-      <aside
-        aria-label="Primary navigation"
+      <header
         aria-labelledby="profile-name"
         aria-modal={isOpen ? 'true' : undefined}
         className={`sidebar${isOpen ? ' sidebar--open' : ''}`}
@@ -68,9 +77,9 @@ function Sidebar({
         ref={navigationRef}
         role={isOpen ? 'dialog' : undefined}
       >
-        <div className="profile">
+        <Link aria-label="Rutav Ritesh Mehta — Home" className="profile" onClick={onClose} to="/">
           <img
-            alt="Rutav Mehta – Profile Photograph"
+            alt=""
             className="profile__photo"
             src={profilePhoto}
           />
@@ -78,7 +87,7 @@ function Sidebar({
             <p className="profile__name" id="profile-name">Rutav Ritesh Mehta</p>
             <p className="profile__subtitle">AI &amp; Data Science Student</p>
           </div>
-        </div>
+        </Link>
 
         <div className="sidebar__section-label">PORTFOLIO</div>
         <nav aria-label="Portfolio pages" className="sidebar__navigation">
@@ -88,7 +97,6 @@ function Sidebar({
               end={path === '/'}
               key={path}
               onClick={onClose}
-              ref={path === '/' ? firstNavigationLinkRef : undefined}
               to={path}
             >
               <Icon aria-hidden="true" size={18} strokeWidth={1.8} />
@@ -99,9 +107,11 @@ function Sidebar({
 
         <div className="sidebar__footer">
           <button
+            aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
             aria-pressed={theme === 'dark'}
             className="theme-toggle"
             onClick={toggleTheme}
+            title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
             type="button"
           >
             <ThemeIcon aria-hidden="true" size={17} />
@@ -110,18 +120,18 @@ function Sidebar({
               <span />
             </span>
           </button>
-          <div className="sidebar__socials" aria-label="Social links">
-            <a href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
+          <div aria-label="Social links" className="sidebar__socials" role="group">
+            <a aria-label="LinkedIn" href="https://linkedin.com/in/rutavmehta" rel="noreferrer" target="_blank">
               <BriefcaseBusiness aria-hidden="true" size={16} />
               <span>LinkedIn</span>
             </a>
-            <a href="https://github.com/" rel="noreferrer" target="_blank">
+            <a aria-label="GitHub" href="https://github.com/rutavmehta" rel="noreferrer" target="_blank">
               <GitBranch aria-hidden="true" size={16} />
               <span>GitHub</span>
             </a>
           </div>
         </div>
-      </aside>
+      </header>
     </>
   )
 }

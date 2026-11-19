@@ -173,7 +173,6 @@ function Home() {
         <div className="activity-timeline">
           {recentActivity.map(({ title, organization, role, description, icon: Icon }, index) => (
             <article className="activity-item" key={title}>
-              <span aria-hidden="true" className="activity-item__marker" />
               <div className="activity-item__content">
                 <div className="activity-item__meta">
                   <span className="activity-item__index">0{index + 1}</span>

@@ -5,7 +5,7 @@ const STORAGE_KEY = 'portfolio-theme'
 
 function getInitialTheme() {
   const savedTheme = window.localStorage.getItem(STORAGE_KEY)
-  return savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light'
+  return savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'dark'
 }
 
 export function ThemeProvider({ children }) {
