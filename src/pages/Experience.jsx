@@ -127,10 +127,15 @@ function Experience() {
               </div>
             </div>
             <div className="leadership-card__content">
-              <p className="leadership-card__roles-label">RESPONSIBILITIES</p>
-              <ul aria-label="Leadership roles" className="experience-labels">
-                {leadershipRoles.map((role) => <li key={role}>{role}</li>)}
-              </ul>
+              <p className="leadership-card__roles-label">LEADERSHIP POSITIONS</p>
+              <div aria-label="Leadership roles" className="leadership-role-list">
+                {leadershipRoles.map((role, index) => (
+                  <div className="leadership-role" key={role}>
+                    <span aria-hidden="true">0{index + 1}</span>
+                    <h4>{role}</h4>
+                  </div>
+                ))}
+              </div>
             </div>
           </Card>
         </Reveal>

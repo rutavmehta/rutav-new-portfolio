@@ -1,4 +1,4 @@
-import { ArrowDownToLine, ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react'
+import { ArrowDownToLine, ArrowRight, ArrowUpRight, Award, ChevronDown } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Button from '../components/ui/Button.jsx'
 import Card from '../components/ui/Card.jsx'
@@ -78,6 +78,30 @@ function Home() {
             <div aria-hidden="true" className="portrait-frame__index">01</div>
           </motion.div>
         </Reveal>
+      </Reveal>
+
+      <Reveal
+        aria-label="Club leadership highlight"
+        className="leadership-highlight-section"
+        delay={0.04}
+      >
+        <Card className="leadership-highlight">
+          <span aria-hidden="true" className="leadership-highlight__icon">
+            <Award size={22} strokeWidth={1.6} />
+          </span>
+          <div className="leadership-highlight__copy">
+            <p className="home-eyebrow">CLUB LEADERSHIP</p>
+            <h2>Treasurer</h2>
+            <p className="leadership-highlight__club">Ignisia | AI &amp; Innovation Club</p>
+            <p className="leadership-highlight__institution">MIT World Peace University</p>
+          </div>
+          <div className="leadership-highlight__aside">
+            <span>Documentation Department Head</span>
+            <Button to="/experience" variant="text">
+              Explore experience <ArrowRight aria-hidden="true" size={16} />
+            </Button>
+          </div>
+        </Card>
       </Reveal>
 
       <Reveal
