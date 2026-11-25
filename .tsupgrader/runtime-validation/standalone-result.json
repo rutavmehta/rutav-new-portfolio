@@ -1,0 +1,153 @@
+{
+  "planHash": "538a41a6372e2f71d27ca495b1de64ff694bb38b211752fe814bc7ca0999657b",
+  "phase": "standalone",
+  "recordedAtUtc": "2026-11-25T05:49:33.8682936Z",
+  "retryCount": 1,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 0,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "lint",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E rutav_new_portfolio@0.0.0 lint\r\n\u003E oxlint\r\n\r\n",
+        "durationMs": 739
+      },
+      {
+        "name": "production-build",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E rutav_new_portfolio@0.0.0 build\r\n\u003E vite build\r\n\r\n\u001B[36mvite v8.3.8 \u001B[32mbuilding client environment for production...\u001B[36m\u001B[39m\r\ntransforming...\r\n\u2713 2562 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\ndist/index.html                                  0.63 kB \u2502 gzip:   0.37 kB\r\ndist/assets/java-course-CyEcD9OB.png           129.87 kB\r\ndist/assets/innovision-CRckQe5g.png            146.59 kB\r\ndist/assets/ignisia-hackathon-D2cc0VYO.jpeg    183.59 kB\r\ndist/assets/RRM_Updated_Pic-t3f5Q30s.jpg       188.29 kB\r\ndist/assets/python-workshop-dkBvEGjw.png       207.35 kB\r\ndist/assets/xfair-hackathon-B3KB57Ml.jpeg      290.00 kB\r\ndist/assets/power-bi-BKRuZWGT.png              321.44 kB\r\ndist/assets/antariksh-hackathon-_4L-_u-M.jpeg  413.85 kB\r\ndist/assets/internship-BJHYrc1J.png            678.06 kB\r\ndist/assets/index-E1vEt8lO.css                 115.83 kB \u2502 gzip:  17.23 kB\r\ndist/assets/index-QmLEKy_m.js                  492.72 kB \u2502 gzip: 152.52 kB\r\n\r\n\u001B[32m\u2713 built in 422ms\u001B[39m\r\n",
+        "durationMs": 1421
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E rutav_new_portfolio@0.0.0 test\r\n\u003E node --test --test-reporter=tap\r\n\r\nTAP version 13\r\n# Subtest: About page CV actions\r\n    # Subtest: describes the CV section and opens the PDF in a new tab\r\n    ok 1 - describes the CV section and opens the PDF in a new tab\r\n      ---\r\n      duration_ms: 1.1167\r\n      type: \u0027test\u0027\r\n      ...\r\n    # Subtest: downloads the PDF using the requested filename\r\n    ok 2 - downloads the PDF using the requested filename\r\n      ---\r\n      duration_ms: 0.2847\r\n      type: \u0027test\u0027\r\n      ...\r\n    1..2\r\nok 1 - About page CV actions\r\n  ---\r\n  duration_ms: 857.1695\r\n  type: \u0027suite\u0027\r\n  ...\r\n1..1\r\n# tests 2\r\n# suites 1\r\n# pass 2\r\n# fail 0\r\n# cancelled 0\r\n# skipped 0\r\n# todo 0\r\n# duration_ms 1273.9963\r\n",
+        "durationMs": 2022,
+        "testResults": {
+          "testFramework": "unknown",
+          "runnerDetectedFrom": "none",
+          "testsTotal": 0,
+          "testsPassed": 0,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": true
+        }
+      },
+      {
+        "name": "production-pdf-route",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n%PDF-1.4\n%\uFFFD\uFFFD\uFFFD\uFFFD\n1 0 obj\n\u003C\u003C\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/Metadata 3 0 R\n/StructTreeRoot 4 0 R\n/MarkInfo 5 0 R\n/Lang (en-IN)\n/ViewerPreferences 6 0 R\n/OutputIntents [7 0 R]\n\u003E\u003E\nendobj\n8 0 obj\n\u003C\u003C\n/Title (Rutav Ritesh Mehta)\n/Creator (Canva)\n/Producer (Canva)\n/CreationDate (D:20261125052359\u002B00\u002700\u0027)\n/ModDate (D:20261125052359\u002B00\u002700\u0027)\n/Keywords (DAHb5eMXWPU,BAGPnuVYFzA)\n/Author (Rutav Mehta)\n/Trapped /False\n\u003E\u003E\nendobj\n2 0 obj\n\u003C\u003C\n/Type /Pages\n/Kids [9 0 R 10 0 R 11 0 R 12 0 R]\n/Count 4\n\u003E\u003E\nendobj\n3 0 obj\n\u003C\u003C\n/Length 3083\n/Type /Metadata\n/Subtype /XML\n\u003E\u003E\nstream\r\n\u003C?xpacket begin=\u0022\uFEFF\u0022 id=\u0022W5M0MpCehiHzreSzNTczkc9d\u0022?\u003E\n\u003Crdf:RDF xmlns:rdf=\u0022http://www.w3.org/1999/02/22-rdf-syntax-ns#\u0022\u003E\n  \u003Crdf:Description rdf:about=\u0022\u0022\n      xmlns:dc=\u0022http://purl.org/dc/elements/1.1/\u0022\n      xmlns:pdf=\u0022http://ns.adobe.com/pdf/1.3/\u0022\n      xmlns:xmp=\u0022http://ns.adobe.com/xap/1.0/\u0022\n      xmlns:pdfuaid=\u0022http://www.aiim.org/pdfua/ns/id/\u0022\n    dc:language=\u0022en-IN\u0022\n    dc:format=\u0022application/pdf\u0022\n    pdf:Producer=\u0022Canva\u0022\n    pdf:Keywords=\u0022DAHb5eMXWPU,BAGPnuVYFzA\u0022\n    pdf:Trapped=\u0022False\u0022\n    xmp:CreatorTool=\u0022Canva\u0022\n    xmp:CreateDate=\u00222026-11-25T05:23:59.326Z\u0022\n    xmp:ModifyDate=\u00222026-11-25T05:23:59.326Z\u0022\n    xmp:MetadataDate=\u00222026-11-25T05:23:59.326Z\u0022\n    pdfuaid:part=\u00221\u0022\u003E\n    \u003Cdc:title\u003E\n      \u003Crdf:Alt\u003E\n        \u003Crdf:li xml:lang=\u0022x-default\u0022\u003ERutav Ritesh Mehta\u003C/rdf:li\u003E\n        \u003Crdf:li xml:lang=\u0022en-IN\u0022\u003ERutav Ritesh Mehta\u003C/rdf:li\u003E\n      \u003C/rdf:Alt\u003E\n    \u003C/dc:title\u003E\n    \u003Cdc:creator\u003E\n      \u003Crdf:Seq\u003E\n        \u003Crdf:li\u003ERutav Mehta\u003C/rdf:li\u003E\n      \u003C/rdf:Seq\u003E\n    \u003C/dc:creator\u003E\n  \u003C/rdf:Description\u003E\n\u003C/rdf:RDF\u003E\n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                                                                    \n                           \n\u003C?xpacket end=\u0022w\u0022?\u003E\r\nendstream\nendobj\n4 0 obj\n\u003C\u003C\n/Type /StructTreeRoot\n/ParentTree 13 0 R\n/ParentTreeNextKey 19\n/K [14 0 R]\n\u003E\u003E\nendobj\n5 0 obj\n\u003C\u003C\n/Marked true\n/Suspects false\n\u003E\u003E\nendobj\n6 0 obj\n\u003C\u003C\n/Type /ViewerPreferences\n/DisplayDocTitle true\n\u003E\u003E\nendobj\n7 0 obj\n\u003C\u003C\n/Type /OutputIntent\n/S /GTS_PDFA1\n/Info (sRGB IEC61966-2.1)\n/OutputCondition (sRGB)\n/OutputConditionIdentifier (IEC 61966-2-1:1999)\n/RegistryName (http://www.color.org)\n/DestOutputProfile 15 0\n\u2026[truncated]",
+        "durationMs": 92
+      },
+      {
+        "name": "about-cv-controls",
+        "kind": "playwright-route",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\nRunning 1 test using 1 worker\r\n\r\n[1/1] playwright-scripts\\about-cv-controls.spec.ts:5:1 \u203A about-cv-controls\r\n  1 passed (4.4s)\r\n",
+        "durationMs": 5240
+      }
+    ],
+    "executions": [
+      {
+        "source": "devServer",
+        "resolvedExecutable": "E:\\npm.CMD",
+        "args": [
+          "run",
+          "dev",
+          "--",
+          "--host",
+          "127.0.0.1"
+        ],
+        "cwd": "E:\\rutav_new_portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "lint",
+        "resolvedExecutable": "E:\\npm.CMD",
+        "args": [
+          "run",
+          "lint"
+        ],
+        "cwd": "E:\\rutav_new_portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "production-build",
+        "resolvedExecutable": "E:\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "E:\\rutav_new_portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "E:\\npm.CMD",
+        "args": [
+          "test"
+        ],
+        "cwd": "E:\\rutav_new_portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "production-pdf-route",
+        "resolvedExecutable": "E:\\npm.CMD",
+        "args": [
+          "run",
+          "preview",
+          "--",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "4173"
+        ],
+        "cwd": "E:\\rutav_new_portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}

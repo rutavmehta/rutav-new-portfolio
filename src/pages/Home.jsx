@@ -1,4 +1,4 @@
-import { ArrowDownToLine, ArrowRight, ArrowUpRight, Award, ChevronDown } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Award, ChevronDown } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Button from '../components/ui/Button.jsx'
 import Card from '../components/ui/Card.jsx'
@@ -41,17 +41,6 @@ function Home() {
             </Button>
             <Button className="portfolio-hero__contact-button" to="/contact" variant="text">
               Get In Touch <ArrowRight aria-hidden="true" size={16} />
-            </Button>
-            <Button
-              aria-label="Resume PDF will be added later"
-              className="resume-button"
-              disabled
-              title="Resume PDF will be added later"
-              type="button"
-              variant="text"
-            >
-              <ArrowDownToLine aria-hidden="true" size={15} />
-              Resume <span className="resume-button__note">PDF soon</span>
             </Button>
           </div>
         </div>

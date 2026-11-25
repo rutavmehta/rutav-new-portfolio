@@ -142,6 +142,50 @@
   margin-top: clamp(42px, 5vw, 58px);
 }
 
+.about-resume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse at 100% 0%, var(--color-page-glow), transparent 46%),
+    var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-resume__copy {
+  min-width: 0;
+}
+
+.about-resume__description {
+  max-width: 520px;
+  margin: 9px 0 0;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.about-resume__actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-resume__download {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+  background: var(--color-surface-elevated);
+}
+
+.about-resume__download:hover {
+  border-color: var(--color-accent-border);
+  background: var(--color-surface-hover);
+}
+
 .about-section__heading {
   display: flex;
   align-items: flex-end;
@@ -677,6 +721,12 @@
     gap: 7px;
   }
 
+  .about-resume {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .about-section__aside {
     max-width: 420px;
   }
@@ -722,6 +772,18 @@
 
   .about-section__aside {
     font-size: 9px;
+  }
+
+  .about-resume {
+    padding: 19px;
+  }
+
+  .about-resume__actions {
+    width: 100%;
+  }
+
+  .about-resume__actions .button {
+    flex: 1 1 150px;
   }
 
   .journey-layout,

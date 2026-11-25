@@ -1,9 +1,11 @@
-import { BrainCircuit, Code2, Database, GraduationCap, Lightbulb, Music2, UsersRound } from 'lucide-react'
+import { BrainCircuit, Code2, Database, Download, Eye, GraduationCap, Lightbulb, Music2, UsersRound } from 'lucide-react'
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
 import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
 import './About.css'
+
+const cvUrl = `${import.meta.env.BASE_URL}documents/Rutav_Ritesh_Mehta_Updated_CV.pdf`
 
 const interests = [
   {
@@ -91,6 +93,41 @@ function About() {
           </figure>
         </Reveal>
       </section>
+
+      <Reveal
+        aria-labelledby="resume-title"
+        as="section"
+        className="about-section about-resume"
+      >
+        <div className="about-resume__copy">
+          <p className="about-eyebrow">CURRICULUM VITAE</p>
+          <h2 className="about-section__title" id="resume-title">My Resume</h2>
+          <p className="about-resume__description">
+            Explore my academic background, technical skills, projects and professional experience.
+          </p>
+        </div>
+        <div aria-label="CV actions" className="about-resume__actions" role="group">
+          <a
+            aria-label="View CV PDF in a new tab"
+            className="button button--primary"
+            href={cvUrl}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Eye aria-hidden="true" size={16} />
+            View CV
+          </a>
+          <a
+            aria-label="Download CV as Rutav_Ritesh_Mehta_CV.pdf"
+            className="button about-resume__download"
+            download="Rutav_Ritesh_Mehta_CV.pdf"
+            href={cvUrl}
+          >
+            <Download aria-hidden="true" size={16} />
+            Download CV
+          </a>
+        </div>
+      </Reveal>
 
       <Reveal
         aria-labelledby="journey-title"
