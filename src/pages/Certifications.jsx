@@ -10,12 +10,15 @@ import {
   X,
 } from 'lucide-react'
 import antarikshHackathonCertificate from '../assets/certificates/antariksh-hackathon.jpeg'
+import cubeChampionshipCertificate from '../assets/certificates/cube.jpeg'
 import ignisiaHackathonCertificate from '../assets/certificates/ignisia-hackathon.jpeg'
 import internshipCertificate from '../assets/certificates/internship.png'
 import innovisionCertificate from '../assets/certificates/innovision.png'
 import javaCourseCertificate from '../assets/certificates/java-course.png'
 import powerBiCertificate from '../assets/certificates/power-bi.png'
 import pythonWorkshopCertificate from '../assets/certificates/python-workshop.png'
+import sihCertificate from '../assets/certificates/sih.jpeg'
+import tablaCertificate from '../assets/certificates/tabla.jpeg'
 import xfairHackathonCertificate from '../assets/certificates/xfair-hackathon.jpeg'
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
@@ -105,6 +108,49 @@ const certificates = [
     image: antarikshHackathonCertificate,
     details: ['Certificate ID: 2026H2S06BAH-P29713'],
   },
+  {
+    id: 'smart-india-hackathon-certificate-of-merit',
+    title: 'Certificate of Merit – Smart India Hackathon',
+    certificateType: 'Certificate of Merit',
+    organisation: 'MIT-WPU Smart India Hackathon',
+    category: 'Hackathons & Achievements',
+    description: 'Received a Certificate of Merit as part of Team ShipWise for outstanding achievement as one of the Top 100 teams in the MIT-WPU Smart India Hackathon. All Top 100 teams were selected for the national round of the Smart India Hackathon.',
+    image: sihCertificate,
+    details: [
+      'Team: Team ShipWise',
+      'Recognition: One of the Top 100 teams',
+      'Selected for the national round',
+    ],
+  },
+  {
+    id: 'sangit-madhyama-purna-tabla-vadan',
+    title: 'Sangit Madhyama Purna – Tabla Vadan',
+    certificateType: 'Sangit Madhyama Purna',
+    organisation: 'Bruhad Gujarat Sangeet Samiti, Ahmedabad',
+    issueDate: 'October 2022',
+    dateLabel: 'Completion date',
+    category: 'Music & Extracurricular Achievements',
+    description: 'Successfully completed Sangit Madhyama Purna in Tabla Vadan in October 2022, demonstrating formal training and sustained dedication to Indian classical percussion.',
+    image: tablaCertificate,
+    details: [
+      'Original qualification: संगीत मध्यमा पूर्ण',
+      'Discipline: तबला वादन (Tabla Vadan)',
+      'Operated by: Gandharva Mahavidyalaya Trust, Ahmedabad',
+    ],
+  },
+  {
+    id: 'national-cube-championship-merit-position',
+    title: 'Merit Position – National Cube Championship',
+    certificateType: 'Merit Position Certificate',
+    organisation: 'Indian Cube Association',
+    location: 'GMERS College, Vadodara',
+    date: '21 April 2019',
+    dateLabel: 'Event date',
+    category: 'Competitions & Achievements',
+    description: 'Received a Merit Position Certificate in the National Cube Championship, held in the 10–14 age category at GMERS College, Vadodara, on 21 April 2019.',
+    image: cubeChampionshipCertificate,
+    details: ['Age category: 10–14 years'],
+  },
 ]
 
 const categories = [
@@ -113,6 +159,9 @@ const categories = [
   'Events & Participation',
   'Workshops',
   'Hackathons',
+  'Hackathons & Achievements',
+  'Music & Extracurricular Achievements',
+  'Competitions & Achievements',
   'Courses',
 ]
 
@@ -177,6 +226,9 @@ function CertificateCard({
             <span className="certificate-card__category">{certificate.category}</span>
           </div>
           <h2 className="certificate-card__title">{certificate.title}</h2>
+          {certificate.description && (
+            <p className="certificate-card__description">{certificate.description}</p>
+          )}
           <p className="certificate-card__organisation">
             <Building2 aria-hidden="true" size={14} />
             <span>{certificate.organisation}</span>
@@ -274,6 +326,9 @@ function CertificateModal({
           <div className="certificate-modal__details">
             <span className="certificate-card__category">{certificate.category}</span>
             <h2 id="certificate-modal-title">{certificate.title}</h2>
+            {certificate.description && (
+              <p className="certificate-modal__description">{certificate.description}</p>
+            )}
             <p className="certificate-modal__organisation">
               <Building2 aria-hidden="true" size={15} />
               <span>{certificate.organisation}</span>
