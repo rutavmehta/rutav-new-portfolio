@@ -2,7 +2,6 @@ import { BrainCircuit, Code2, Database, Download, Eye, GraduationCap, Lightbulb,
 import Card from '../components/ui/Card.jsx'
 import PageContainer from '../components/ui/PageContainer.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
-import profilePhoto from '../assets/RRM_Updated_Pic.jpg'
 import './About.css'
 
 const cvUrl = `${import.meta.env.BASE_URL}documents/Rutav_Ritesh_Mehta_Updated_CV.pdf`
@@ -79,11 +78,90 @@ function About() {
 
         <Reveal className="about-portrait" delay={0.12}>
           <figure className="about-portrait__frame">
-            <img
-              alt="Rutav Mehta – Profile Photograph"
-              className="about-portrait__image"
-              src={profilePhoto}
-            />
+            <div className="about-portrait__visual">
+              <svg
+                aria-labelledby="about-technology-title about-technology-description"
+                className="about-portrait__artwork"
+                role="img"
+                viewBox="0 0 480 560"
+              >
+                <title id="about-technology-title">Abstract AI and data-science network</title>
+                <desc id="about-technology-description">
+                  A calm, interconnected neural network with softly illuminated nodes, data paths, and geometric layers.
+                </desc>
+                <defs>
+                  <pattern height="32" id="about-grid" patternUnits="userSpaceOnUse" width="32">
+                    <path d="M 32 0 L 0 0 0 32" fill="none" stroke="var(--color-border)" strokeOpacity="0.35" strokeWidth="0.7" />
+                  </pattern>
+                  <radialGradient cx="50%" cy="47%" id="about-core-glow" r="52%">
+                    <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0.16" />
+                    <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0" />
+                  </radialGradient>
+                  <linearGradient id="about-line-glow" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stopColor="var(--color-text-faint)" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="var(--color-accent)" stopOpacity="0.62" />
+                    <stop offset="100%" stopColor="var(--color-text-faint)" stopOpacity="0.18" />
+                  </linearGradient>
+                  <filter height="300%" id="about-node-glow" width="300%" x="-100%" y="-100%">
+                    <feGaussianBlur result="blur" stdDeviation="3" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <rect fill="url(#about-grid)" height="560" width="480" />
+                <ellipse cx="240" cy="266" fill="url(#about-core-glow)" rx="216" ry="226" />
+
+                <g fill="none" stroke="var(--color-border-strong)" strokeOpacity="0.48">
+                  <circle cx="240" cy="266" r="166" strokeDasharray="2 11" />
+                  <circle cx="240" cy="266" r="132" strokeOpacity="0.34" />
+                  <path d="M54 266h372M240 78v376" strokeDasharray="1 9" />
+                  <path d="m93 143 294 246M387 143 93 389" strokeOpacity="0.22" />
+                </g>
+
+                <g fill="none" stroke="url(#about-line-glow)" strokeLinecap="round" strokeWidth="1.25">
+                  <path d="m240 266-90-91m90 91 89-92m-89 92 112-7m-112 7-92 83m92-83 70 91m-70-91-12 139m-90-236 44-50m46 50 9-91m80 0-35 90m35-90 54 74m-10 97 66 66m-66-66-7 113m-48-22 55 22m-55-22-64 69m-8-69-67 70m-25-153-63 63m63-63-75-7" />
+                  <path d="m150 175 74-18m15 18-68 92m158-93-68 92m68-92 44 66m-156 0 70 91m-70-91-25 66m95 25 64 22m-64-22-70 47" strokeOpacity="0.58" />
+                </g>
+
+                <g fill="none" stroke="var(--color-accent-border)" strokeWidth="0.8">
+                  <path d="M240 207 299 241l-8 68-60 35-61-35-5-69 66-33Z" />
+                  <path d="m240 226 41 24-5 47-37 23-43-23-3-47 47-24Z" strokeOpacity="0.62" />
+                  <path d="m127 118 22-22 22 22-22 22-22-22Zm181 320 17-17 17 17-17 17-17-17Z" strokeOpacity="0.7" />
+                </g>
+
+                <g fill="var(--color-surface)" stroke="var(--color-text-faint)" strokeWidth="1">
+                  <circle cx="150" cy="175" r="5" />
+                  <circle cx="329" cy="174" r="5" />
+                  <circle cx="352" cy="259" r="4" />
+                  <circle cx="148" cy="349" r="4" />
+                  <circle cx="310" cy="357" r="5" />
+                  <circle cx="228" cy="405" r="4" />
+                  <circle cx="174" cy="85" r="3" />
+                  <circle cx="375" cy="333" r="3" />
+                  <circle cx="82" cy="342" r="3" />
+                </g>
+
+                <g filter="url(#about-node-glow)">
+                  <circle cx="240" cy="266" fill="var(--color-accent-soft)" r="18" />
+                  <circle cx="240" cy="266" fill="var(--color-surface)" r="7" stroke="var(--color-accent)" strokeWidth="1.5" />
+                  <circle cx="224" cy="157" fill="var(--color-accent)" r="3.5" />
+                  <circle cx="384" cy="326" fill="var(--color-accent)" r="3" />
+                  <circle cx="84" cy="259" fill="var(--color-accent)" r="3" />
+                </g>
+
+                <g fill="none" stroke="var(--color-accent)" strokeLinecap="round" strokeOpacity="0.66" strokeWidth="1">
+                  <path d="M67 454h72m-52 10h52m195-10h78m-58 10h58" />
+                  <path d="M67 454h21m246 0h22" strokeDasharray="2 5" />
+                </g>
+                <g fill="var(--color-text-muted)" fontFamily="var(--font-body)" fontSize="8" letterSpacing="2">
+                  <text x="67" y="443">SIGNAL / 01</text>
+                  <text textAnchor="end" x="413" y="443">NODE / 09</text>
+                </g>
+              </svg>
+            </div>
             <span aria-hidden="true" className="about-portrait__shade" />
             <span aria-hidden="true" className="about-portrait__index">01</span>
             <figcaption className="about-portrait__caption">
